@@ -1,5 +1,6 @@
 # Fraud-Detection
 Dataset link: https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud
+
 A flask web application that deals with payment fraud detection(.csv files) and url fraud detection with a trust score.
 This project introduces a comprehensive web application developed using Flask, integrating fraud detection and payment URL safety assessment functionalities. The system includes user registration with Google reCAPTCHA for enhanced security. The user data is stored in an SQLite database with hashed and salted passwords.
 Upon registration, users receive a one-time password (OTP) for verification via email. The verification process ensures the legitimacy of user accounts. The application also features a login system with password encryption using bcrypt.
