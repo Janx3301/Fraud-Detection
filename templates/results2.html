@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Understanding URL Phishing Scams</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+       body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+    color: #444;
+    background-image: url('/static/images/bg33.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    background-attachment: fixed;
+}
+
+.go-back-button {
+            cursor: pointer;
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            background-color: transparent;
+            display: flex;
+            align-items: center;
+            border-radius: 10px;
+            z-index: 100;
+        }
+
+        .go-back-button img {
+            height: 30px;
+            width: 30px;
+        }
+.logo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo img {
+    max-width: 100%; /* Ensure the logo is responsive */
+    height: auto;
+}
+
+main section {
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #fff; /* Add a white background to sections */
+}
+
+h2 {
+    color: #2a4dbe; /* Darker green */
+    margin-bottom: 15px; /* Increase spacing below headings */
+}
+
+ul {
+    list-style-type: disc;
+    margin-left: 30px;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.8em;
+    color: #777;
+    background-color: #f9f9f9; /* Light gray background for footer */
+    padding: 10px; /* Add padding to the footer */
+}
+
+#confusion-matrix {
+    text-align: center; /* Center-align the content in this section */
+}
+
+#confusion-matrix img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 15px; /* Add spacing between text and image */
+}
+
+    </style>
+</head>
+<body>
+    
+    <button class="go-back-button" onclick="location.href='/dashboard'">
+        <img src="/static/images/back.png" alt="Go Back">
+        Go Back
+    </button>
+    <div class="logo">
+        <img src="/static/images/testpic-removebg-preview.png" alt="Logo">
+    </div>
+
+    <main>
+        <section id="what-is-fraud">
+            <h2>What is URL Phishing Scams?</h2>
+            <p>URL phishing scams are deceptive websites that aim to trick you into entering personal information, like passwords and credit card numbers.</p>
+            <p>Clicking on malicious URLs can lead to downloading viruses or malware onto your computer.</p>
+        </section>
+
+        <section id="how-we-protect">
+            <h2>How We Protect You</h2>
+            <ul>
+                <li><strong>URL Analysis:</strong> We analyze URLs to identify characteristics commonly found in phishing sites.</li>
+                <li><strong>Website Blocking:</strong> We block websites that are known to be dangerous.</li>
+                <li><strong>Real-Time Detection:</strong> We use real-time detection to catch even brand-new threats.</li>
+            </ul>
+        </section>
+
+        <section id="protect-yourself">
+            <h2>What You Can Do (Tips)</h2>
+            <ul>
+                <li><strong>Avoid Clicking Suspicious Links:</strong> Never click on a link in an email or text message from someone you don't know.</li>
+                <li><strong>Check Website URLs Carefully:</strong> Verify the website URL for slight misspellings or unusual domain names.</li>
+                <li><strong>Type URLs Directly:</strong> If you're unsure about a website, type the URL directly into your browser instead of clicking a link.</li>
+            </ul>
+        </section>
+        <!-- Confusion Matrix Information -->
+        <section id="confusion-matrix">
+            <h2>Model Performance</h2>
+            <p>This means our model correctly identified <span style="font-weight: bold;">94%</span> of phishing/malicious URLs, while only incorrectly labeling a small number of safe websites.</p>
+            <img src="/static/images/cm2.png" alt="Confusion Matrix">
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Guardian Shield</p>
+    </footer>
+
+</body>
+</html>

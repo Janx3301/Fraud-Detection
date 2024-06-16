@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        function showFileDialog() {
+            document.getElementById('csv-file').click();
+        }
+    
+        function displayFileName() {
+            var fileInput = document.getElementById('csv-file');
+            var fileName = fileInput.value.split('\\').pop();
+            document.getElementById('file-name').innerText = fileName;
+        }
+    </script>
+    
+    <style>
+    body {
+    font-family: "Open Sans", sans-serif;
+    color: #444444;
+    background-image: url('/static/images/bg2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+.fraud-container{
+width: 60%;
+
+border: 1px solid black;
+margin: auto auto;
+margin-top: 50px;
+}
+.fraud-container .fraud-header-container{
+background-color:#5cb874; 
+margin-top: 0px ;
+border: 1px solid black;
+}
+
+.fraud-header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    margin-top: 0px;
+    border: none;
+    padding: 10px;
+}
+
+.fraud-header-container .logo {
+    display: flex;
+    align-items: center;
+    color: #FFFFFF;
+}
+
+.fraud-header-container .logo img {
+    height: 60px;
+    padding-top: 10px;
+    padding-left: 30px;
+}
+
+.fraud-header-container .logout {
+    display: flex;
+    align-items: center;
+    color: #FFFFFF;
+}
+
+.fraud-container .fraud-buttons-container{
+display: flex;
+flex-direction:column;
+margin: 10px;
+padding: 20px;
+}
+
+.fraud-container .fraud-header-container .fraud-header{
+text-align: center;
+color: #FFFFFF;
+padding-left: 250px;
+}
+
+.fraud-header-container .fraud-header {
+    text-align: center;
+    color: #0f0e0e;
+    margin: 0;
+}
+
+.fraud-buttons {
+    margin: 20px auto 20px auto;
+    padding: 15px;
+    width: 60%;
+    color: #ffffff;
+    font-size: 20px;
+    text-align: center;
+    background-color: #1644a8;
+    cursor: pointer;
+    margin-top: 30px;
+}
+
+.fraud-buttons:hover {
+    opacity: 0.8;
+}
+
+.fraud-buttons:active{
+    background-color: darkblue;
+}
+.logout span {
+font-size: 18px;
+font-weight: bold;
+color: #0f0e0e;
+padding-right: 40px;
+}
+
+.logout button {
+padding: 8px 12px;
+background-color: #5cb874;
+color: #fff;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+margin-right: 50px;
+}
+
+.logout button:hover {
+background-color: #4ca663;
+}
+
+.logout button:focus {
+outline: none;
+box-shadow: 0 0 0 3px rgba(92, 184, 116, 0.5);
+}
+
+.submit_button{
+    padding: 8px 12px;
+    background-color: #3229dc;
+    color: #fff;
+    border: none;
+    border-radius: 10%;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    margin-left: 330px;
+    margin-bottom: 20px;
+}
+
+.file_name{
+    margin-left: 315px ;
+}
+
+.fraud-container{
+    height: 300px;
+}
+    </style>
+    <title>Fraud Detection</title>
+</head>
+<body>
+<main id="main">
+    <!-- ======= Hero Section ======= -->
+    <section id="homesection" style="padding: 0px 0px;">
+        <!-- header-box -->
+        <div id="header-container">
+            <div class="fraud-header-container">
+                <div class="logo">
+                    <img src="/static/images/testpic.png" alt="Logo">
+                </div>
+               <div class="logout">
+    <form action="{{ url_for('logout') }}" method="post">
+        <span style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Welcome, {{ username }}</span>
+        <button type="submit">LOGOUT</button>
+    </form>
+</div>
+              
+            </div>
+        </div>
+        <div class="fraud-container" style="margin-bottom: 25px;">
+            <div class="fraud-header-container">
+                <h3 class="fraud-header">FRAUD DETECTION</h3>
+            </div>
+            <form action="{{ url_for('predict') }}" method="post" enctype="multipart/form-data">
+                <input type="file" id="csv-file" name="csv-file" style="display: none;" onchange="displayFileName()" accept=".csv">
+                <div class="fraud-buttons" onclick="showFileDialog()">UPLOAD CSV RECORD</div>
+                <p class="file_name" id="file-name"></p>
+                <button class="submit_button" type="submit">Submit</button>
+            </form>
+        </div>
+        
+    </section>
+</main>
+</body>
+</html>

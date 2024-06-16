@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/home.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <a class="logo">
+            <img src="{{ url_for('static', filename='images/testpic.png') }}" alt="Test Picture">
+        </a>
+        <div class="button">
+            <a href="{{ url_for('dashboard') }}"><button>Learn More</button></a>
+        </div>
+        
+    </header>
+
+    <div id="content">
+        <div class="text-container">
+            <h1 class="heading">
+                <span class="line">Take control of</span><br>
+                <span class="line">payment fraud.</span>
+            </h1>
+            <h2 class="sub-heading">
+                Unleash the Power of Machine Learning:<br>
+                Safeguard Your Finances and Ensure Digital<br>
+                Trust with our Fraud Detection Solution.
+            </h2>
+            <div class="buttons-container">
+                <button class="register-login-button" onclick="location.href='/login'">
+                    <span class="button-icon">&#128100;</span> Register | Login
+                </button>                
+                <button class="learn-more-button" onclick="location.href='/index'">
+                    <span class="button-icon">&#128279;</span> URL Check
+                </button>
+                
+            </div>
+        </div>
+    </div>
+    
+
+    <div id="video-container">
+        <iframe src="https://player.vimeo.com/video/832452672?autoplay=1&loop=1&muted=1&background=1" width="425" height="425" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+    </div>
+</body>
+</html>

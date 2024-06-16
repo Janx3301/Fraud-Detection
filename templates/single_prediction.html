@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction</title>
+</head>
+<body>
+    <main id="main">
+        <!-- ======= Hero Section ======= -->
+        <section id="homesection" style="padding: 0px 0px;">
+            <!-- header-box -->
+            <div id="header-container">
+                <div class="fraud-header-container">
+                    <div class="logo">
+                        <img src="/static/images/testpic.png" alt="Logo">
+                    </div>
+                    <div class="logout">
+                        <form action="{{ url_for('logout') }}" method="post">
+                            <button type="submit">LOGOUT</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="result">
+                <h1><img src="/static/images/result.png" alt="Result Icon" class="result-icon"> Results</h1>
+                <hr class="line">
+                <h3><img src="/static/images/accuracy.png" alt="Accuracy Icon" class="accuracy-icon"><span>Detection Rate: 90%</span> </h3>
+                <hr class="line">
+                <div class="transaction-results-grid"> 
+                {% for trans_num, prediction in predictions %}
+                    <div class="transaction-result">
+                        <h2>Transaction: <span style="color: rgb(38, 69, 225); font-size: 20px;">{{ trans_num }}</span></h2>
+                        {% if prediction == 0 %}
+                            <h2 style="margin-left: 15px;">Legitimate transaction <img src="/static/images/success.png" alt="Success Icon" class="status-icon"></h2>
+                        {% elif prediction == 1 %}
+                            <h2>Fraudulent transaction <img src="/static/images/cancel.png" alt="Cancel Icon" class="status-icon"></h2>
+                        {% else %}
+                            <h2>Unknown result</h2>
+                        {% endif %}
+                        
+                    </div>
+                    <hr class="line">
+                {% endfor %}
+                </div>
+            </div>
+            
+            
+        </section>
+    </main>
+</body>
+<style>
+    .transaction-results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
+  gap: 30px; 
+}
+
+.transaction-result {
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 25px; 
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.08);
+  background-color: #fff; 
+}
+
+.transaction-result h2 { 
+  margin-bottom: 15px;
+} 
+
+
+    body {
+        font-family: "Open Sans", sans-serif;
+        color: #444444;
+        background-image: url('/static/images/bg2.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        background-attachment: fixed;
+    }
+
+    .fraud-header-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    border: none;
+    padding: 10px;
+    z-index: 1000; /* You can adjust the z-index based on your layout */
+}
+
+
+    .result {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+        text-align: center;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 4px;
+        margin-top: 140px;
+        width: 600px;
+        margin-left: 300px;
+    }
+    .fraud-header-container .logo img {
+        height: 60px;
+        padding-top: 10px;
+        padding-left: 30px;
+    }
+
+    .fraud-header-container .logout {
+        display: flex;
+        align-items: center;
+        color: #FFFFFF;
+        margin-right: 50px;
+    }
+
+    .logout span {
+        font-size: 18px;
+        font-weight: bold;
+        color: #0f0e0e;
+        padding-right: 40px;
+    }
+
+    .logout button {
+        padding: 8px 12px;
+        background-color: #5cb874;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .logout button:hover {
+        background-color: #4ca663;
+    }
+
+    .logout button:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(92, 184, 116, 0.5);
+    }
+
+    .result h1 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .result-icon {
+        height: 24px;
+        margin-right: 10px;
+    }
+    .line {
+            border: none;
+            height: 1px;
+            background-color: #00000041;
+            width: 480px;
+            margin: 0 auto;
+            margin-bottom: 20px;
+            padding-left: 50px;
+        }
+    .status-icon {
+        height: 26px;
+        vertical-align: middle;
+        margin-left: 0;
+        margin-bottom: 3px;
+         }
+    .accuracy-icon {
+        height: 24px;
+        margin-right: 10px;
+        vertical-align: middle;
+    }
+</style>
+</html>

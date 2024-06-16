@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register Page</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/register.css') }}">
+</head>
+<body>
+    <div class="Whole">
+        <div class="container">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='images/testpic.png') }}" alt="Logo">
+            </div>
+            <hr class="line">
+            <form method="POST" id="registration-form">
+                <div class="name-group">
+                    <input type="text" id="first-name" name="first-name" placeholder="First Name" required>  
+                    <input type="text" id="last-name" name="last-name" placeholder="Last Name" required>  
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                </div>
+                <button type="submit" id="register-button" >Register</button>
+            </form>
+            {% if error_message %}
+            <div style="color: #ff0000; font-size: 14px; margin-top: 10px; margin-left: 100px;">
+                {{ error_message }}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/login.css') }}">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <style>
+        /* Add custom styles for the reCAPTCHA widget */
+        .g-recaptcha {
+            border-left: 110px solid #ffffff; /* Adjust the color and width as needed */
+        }
+    </style>
+</head>
+<body>
+    <div class="Whole">
+        <div class="container">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='images/testpic.png') }}" alt="Logo">
+            </div>
+            <hr class="line">
+            <form method="POST">
+                <div class="form-group">
+                    <input type="email" id="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                </div>
+                <div class="g-recaptcha" data-sitekey="6LctUnkoAAAAADyackl9D2S-QQi4gim1rv6lGT6y" data-callback="recaptchaCallback"></div>
+                <button type="submit" id="login-button" disabled>Log in</button>
+            </form>
+            <div class="register">
+                <p>Don't have an account? <a href="/register" class="register-link">Register now</a></p>
+            </div>
+            {% if error_message %}
+            <div style="color: #ff0000; font-size: 14px; margin-top: 10px; margin-left: 100px;">
+                {{ error_message }}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    <script>
+        function recaptchaCallback() {
+            document.getElementById('login-button').removeAttribute('disabled');
+            
+        }
+    </script>
+</body>
+</html>

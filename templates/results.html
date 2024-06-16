@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Understanding Payment Fraud</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+       body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+    color: #444;
+    background-image: url('/static/images/bg33.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    background-attachment: fixed;
+}
+
+.go-back-button {
+            cursor: pointer;
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            background-color: transparent;
+            display: flex;
+            align-items: center;
+            border-radius: 10px;
+            z-index: 100;
+        }
+
+        .go-back-button img {
+            height: 30px;
+            width: 30px;
+        }
+.logo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo img {
+    max-width: 100%; /* Ensure the logo is responsive */
+    height: auto;
+}
+
+main section {
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #fff; /* Add a white background to sections */
+}
+
+h2 {
+    color: #2a4dbe; /* Darker green */
+    margin-bottom: 15px; /* Increase spacing below headings */
+}
+
+ul {
+    list-style-type: disc;
+    margin-left: 30px;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.8em;
+    color: #777;
+    background-color: #f9f9f9; /* Light gray background for footer */
+    padding: 10px; /* Add padding to the footer */
+}
+
+#confusion-matrix {
+    text-align: center; /* Center-align the content in this section */
+}
+
+#confusion-matrix img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 15px; /* Add spacing between text and image */
+}
+
+    </style>
+</head>
+<body>
+    
+    <button class="go-back-button" onclick="location.href='/dashboard'">
+        <img src="/static/images/back.png" alt="Go Back">
+        Go Back
+    </button>
+    <div class="logo">
+        <img src="/static/images/testpic-removebg-preview.png" alt="Logo">
+    </div>
+
+    <main>
+        <section id="what-is-fraud">
+            <h2>What is Payment Fraud?</h2>
+            <p>Payment fraud happens when someone tries to steal your financial information (credit card details, bank account, etc.) to make unauthorized purchases or transactions. They might attempt this through online scams, data breaches, or even physical theft of your card.</p>
+        </section>
+
+        <section id="how-we-protect">
+            <h2>How We Protect You</h2>
+            <ul>
+                <li><strong>Advanced Fraud Detection:</strong> We employ sophisticated machine learning models to analyze patterns in transactions, flagging suspicious activity.</li>
+                <li><strong>Data Analysis:</strong> We carefully examine factors like your spending habits, transaction locations, and device information to spot potential fraud.</li>
+                <li><strong>Secure Systems:</strong> Our systems are designed with strong security measures to safeguard your sensitive financial data.</li>
+            </ul>
+        </section>
+
+        <section id="protect-yourself">
+            <h2>What You Can Do (Tips)</h2>
+            <ul>
+                <li><strong>Monitor Your Accounts:</strong> Regularly check your bank and credit card statements for any unusual charges.</li>
+                <li><strong>Strong Passwords:</strong> Use unique, complex passwords and change them frequently.</li>
+                <li><strong>Be Wary of Scams:</strong> Don't click on suspicious links or give out personal information in response to unsolicited requests.</li>
+            </ul>
+        </section>
+        <!-- Confusion Matrix Information -->
+        <section id="confusion-matrix">
+            <h2>Model Performance</h2>
+            <p>This shows that our model correctly identified <span style="font-weight: bold;">90%</span> of actual fraud cases, while also minimizing false alarms.</p>
+            <img src="/static/images/cm.png" alt="Confusion Matrix">
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Guardian Shield</p>
+    </footer>
+
+</body>
+</html>
